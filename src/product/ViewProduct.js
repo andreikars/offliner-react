@@ -10,7 +10,7 @@ export default function ProductDetail() {
         // Загрузка информации о товаре
         const loadProduct = async () => {
             try {
-                const result = await axios.get(`https://5eb6-93-84-5-230.ngrok-free.app/api/products/${id}`);
+                const result = await axios.get(`https://nine-clubs-wonder.loca.lt/api/products/${id}`);
                 setProduct(result.data);
             } catch (error) {
                 console.error('Error loading product details:', error);
@@ -30,7 +30,7 @@ export default function ProductDetail() {
                 <div className="col-md-6">
                     {/* Изображение товара */}
                     <img
-                        src={product.imageUrl ? `https://5eb6-93-84-5-230.ngrok-free.app/product/${product.imageUrl}` : 'https://via.placeholder.com/500x500'}
+                        src={product.imageUrl ? `https://nine-clubs-wonder.loca.lt/product/${product.imageUrl}` : 'https://via.placeholder.com/500x500'}
                         alt={product.name}
                         className="img-fluid rounded"
                         style={{ maxHeight: '500px', objectFit: 'contain' }}

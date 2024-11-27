@@ -24,7 +24,7 @@ export default function AddUser() {
       e.preventDefault();
     
       try {
-        const response = await axios.post("https://5eb6-93-84-5-230.ngrok-free.app/user", user, {
+        const response = await axios.post("https://nine-clubs-wonder.loca.lt/user", user, {
           headers: {
             "Content-Type": "application/json",
           },

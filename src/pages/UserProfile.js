@@ -28,7 +28,7 @@ const UserProfile = () => {
     // Функция для загрузки данных о пользователе
     const fetchUserProfile = async (username) => {
         try {
-            const response = await axios.get(`https://5eb6-93-84-5-230.ngrok-free.app/users/${username}`);
+            const response = await axios.get(`https://nine-clubs-wonder.loca.lt/users/${username}`);
             setUserData(response.data); // Сохраняем данные о пользователе
             setNewUserData(response.data); // Сохраняем данные для редактирования
         } catch (error) {
@@ -45,7 +45,7 @@ const UserProfile = () => {
     // Функция для отправки изменений на сервер
     const handleSave = async () => {
         try {
-            const response = await axios.put('https://5eb6-93-84-5-230.ngrok-free.app/api/users/update', newUserData);
+            const response = await axios.put('https://nine-clubs-wonder.loca.lt/api/users/update', newUserData);
             setUserData(response.data); // Обновляем локальные данные после успешного сохранения
             setIsEditing(false); // Выходим из режима редактирования
         } catch (error) {

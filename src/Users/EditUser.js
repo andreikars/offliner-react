@@ -30,7 +30,7 @@ export default function EditUser() {
         e.preventDefault();
 
         try {
-            const response = await axios.put(`https://5eb6-93-84-5-230.ngrok-free.app/user/${id}`, user, {
+            const response = await axios.put(`https://nine-clubs-wonder.loca.lt/user/${id}`, user, {
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -43,7 +43,7 @@ export default function EditUser() {
     };
 
     const loadUser = async () => {
-        const result = await axios.get(`https://5eb6-93-84-5-230.ngrok-free.app/user/${id}`);
+        const result = await axios.get(`https://nine-clubs-wonder.loca.lt/user/${id}`);
         setUser(result.data);
     };
 

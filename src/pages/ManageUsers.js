@@ -12,13 +12,13 @@ export default function ManageUsers() {
 
     // Загрузка пользователей с сервера
     const loadUsers = async () => {
-        const result = await axios.get("https://5eb6-93-84-5-230.ngrok-free.app/users");
+        const result = await axios.get("https://nine-clubs-wonder.loca.lt/users");
         setUsers(result.data);
     };
 
     // Удаление пользователя
     const deleteUser = async (id) => {
-        await axios.delete(`https://5eb6-93-84-5-230.ngrok-free.app/user/${id}`);
+        await axios.delete(`https://nine-clubs-wonder.loca.lt/user/${id}`);
         loadUsers();
     };
 

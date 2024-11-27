@@ -19,7 +19,7 @@ export default function ViewUser() {
     }, []);
 
     const loadUser = async () => {
-        const result = await axios.get(`https://5eb6-93-84-5-230.ngrok-free.app/user/${id}`);
+        const result = await axios.get(`https://nine-clubs-wonder.loca.lt/user/${id}`);
         setUser(result.data);
     };
 

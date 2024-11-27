@@ -35,7 +35,7 @@ const Register = () => {
         }
     
         try {
-            await axios.post('https://5eb6-93-84-5-230.ngrok-free.app/auth/register', formData);
+            await axios.post('https://nine-clubs-wonder.loca.lt/auth/register', formData);
             alert('Регистрация прошла успешно');
             navigate('/login');
         } catch (error) {
