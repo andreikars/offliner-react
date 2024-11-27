@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Navbar() {
-  const [searchQuery, setSearchQuery] = useState(''); // Для поиска товаров
   const [role, setRole] = useState(localStorage.getItem('userRole')); // Для роли пользователя
   const [username, setUsername] = useState(localStorage.getItem('username')); // Для имени пользователя
   const navigate = useNavigate();
@@ -20,11 +19,6 @@ export default function Navbar() {
       window.removeEventListener('storage', handleStorageChange);
     };
   }, []);
-
-  // Обработчик изменения значения в поисковой строке
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
 
   // Обработчик выхода
   const handleLogout = () => {
@@ -72,22 +66,7 @@ export default function Navbar() {
                   </li>
                 </>
               )}
-
-
             </ul>
-
-            {/* Общий поиск для всех */}
-            <div className="d-flex mx-auto" style={{ width: '55%' }}>
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Поиск товаров"
-                aria-label="Search"
-                value={searchQuery}
-                onChange={handleSearchChange}
-                style={{ minWidth: '100%' }}
-              />
-            </div>
 
             {/* Кнопки регистрации, входа и выхода справа */}
             <div className="d-flex ms-auto">
