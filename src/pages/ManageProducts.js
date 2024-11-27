@@ -22,14 +22,14 @@ export default function ManageProducts() {
 
     // Загрузка продуктов с сервера
     const loadProducts = async () => {
-        const result = await axios.get("https://tidy-hornets-exist.loca.lt/api/products");
+        const result = await axios.get("https://5eb6-93-84-5-230.ngrok-free.app/api/products");
         setProducts(result.data);
     };
 
     // Загрузка категорий с сервера
     const loadCategories = async () => {
         try {
-            const result = await axios.get("https://tidy-hornets-exist.loca.lt/api/categories");
+            const result = await axios.get("https://5eb6-93-84-5-230.ngrok-free.app/api/categories");
             // Логируем для отладки
             console.log(result.data); 
             setCategories(Array.isArray(result.data) ? result.data : []); // Обеспечиваем, что это массив
@@ -41,7 +41,7 @@ export default function ManageProducts() {
 
     // Удаление продукта
     const deleteProduct = async (id) => {
-        await axios.delete(`https://tidy-hornets-exist.loca.lt/api/products/${id}`);
+        await axios.delete(`https://5eb6-93-84-5-230.ngrok-free.app/api/products/${id}`);
         loadProducts();
     };
 
@@ -72,7 +72,7 @@ export default function ManageProducts() {
         }
     
         try {
-            await axios.post("https://tidy-hornets-exist.loca.lt/api/products", formData, {
+            await axios.post("https://5eb6-93-84-5-230.ngrok-free.app/api/products", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

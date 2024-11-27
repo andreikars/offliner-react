@@ -24,7 +24,7 @@ export default function AddUser() {
       e.preventDefault();
     
       try {
-        const response = await axios.post("https://tidy-hornets-exist.loca.lt/user", user, {
+        const response = await axios.post("https://5eb6-93-84-5-230.ngrok-free.app/user", user, {
           headers: {
             "Content-Type": "application/json",
           },

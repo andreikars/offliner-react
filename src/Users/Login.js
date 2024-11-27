@@ -20,7 +20,7 @@ const Login = () => {
         setError(''); // Очистить предыдущую ошибку
 
         try {
-            const response = await axios.post('https://tidy-hornets-exist.loca.lt/auth/login', credentials);
+            const response = await axios.post('https://5eb6-93-84-5-230.ngrok-free.app/auth/login', credentials);
             const { role, username, userId } = response.data; // Предполагается, что в ответе есть роль и имя пользователя
 
             // Логируем полученные данные

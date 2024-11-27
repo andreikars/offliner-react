@@ -12,13 +12,13 @@ export default function ManageUsers() {
 
     // Загрузка пользователей с сервера
     const loadUsers = async () => {
-        const result = await axios.get("https://tidy-hornets-exist.loca.lt/users");
+        const result = await axios.get("https://5eb6-93-84-5-230.ngrok-free.app/users");
         setUsers(result.data);
     };
 
     // Удаление пользователя
     const deleteUser = async (id) => {
-        await axios.delete(`https://tidy-hornets-exist.loca.lt/user/${id}`);
+        await axios.delete(`https://5eb6-93-84-5-230.ngrok-free.app/user/${id}`);
         loadUsers();
     };
 
