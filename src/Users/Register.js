@@ -35,7 +35,7 @@ const Register = () => {
         }
     
         try {
-            await axios.post('http://localhost:8080/auth/register', formData);
+            await axios.post('https://tidy-hornets-exist.loca.lt/auth/register', formData);
             alert('Регистрация прошла успешно');
             navigate('/login');
         } catch (error) {

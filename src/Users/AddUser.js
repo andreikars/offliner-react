@@ -24,7 +24,7 @@ export default function AddUser() {
       e.preventDefault();
     
       try {
-        const response = await axios.post("http://localhost:8080/user", user, {
+        const response = await axios.post("https://tidy-hornets-exist.loca.lt/user", user, {
           headers: {
             "Content-Type": "application/json",
           },
