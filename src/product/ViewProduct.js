@@ -10,7 +10,7 @@ export default function ProductDetail() {
         // Загрузка информации о товаре
         const loadProduct = async () => {
             try {
-                const result = await axios.get(`https://nine-clubs-wonder.loca.lt/api/products/${id}`);
+                const result = await axios.get(`http://localhost:8080/api/products/${id}`);
                 setProduct(result.data);
             } catch (error) {
                 console.error('Error loading product details:', error);
@@ -19,6 +19,43 @@ export default function ProductDetail() {
 
         loadProduct();
     }, [id]);
+
+    const handleAddToCart = async () => {
+        const username = localStorage.getItem('username'); // Получаем имя пользователя из localStorage
+        if (!username) {
+            alert('Для добавления товара в корзину, нужно войти в систему!');
+            return;
+        }
+
+        const userId = localStorage.getItem('userId'); // ID пользователя из localStorage
+        if (!userId) {
+            alert('Не удалось получить ID пользователя');
+            return;
+        }
+
+        if (!product) {
+            alert('Не удалось получить информацию о товаре');
+            return;
+        }
+
+        try {
+            const quantity = 1; // Количество товара по умолчанию
+
+            const cartItem = {
+                product: { id: product.id },
+                user: { id: userId },
+                quantity: quantity
+            };
+
+            // Отправка запроса на добавление товара в корзину
+            await axios.post('http://localhost:8080/api/cart', cartItem);
+
+            alert('Товар добавлен в корзину!');
+        } catch (error) {
+            console.error('Ошибка при добавлении товара в корзину:', error);
+            alert('Произошла ошибка при добавлении товара в корзину');
+        }
+    };
 
     if (!product) {
         return <div>Loading...</div>; // Если данные о товаре еще не загружены
@@ -30,7 +67,7 @@ export default function ProductDetail() {
                 <div className="col-md-6">
                     {/* Изображение товара */}
                     <img
-                        src={product.imageUrl ? `https://nine-clubs-wonder.loca.lt/product/${product.imageUrl}` : 'https://via.placeholder.com/500x500'}
+                        src={product.imageUrl ? `http://localhost:8080/product/${product.imageUrl}` : 'https://via.placeholder.com/500x500'}
                         alt={product.name}
                         className="img-fluid rounded"
                         style={{ maxHeight: '500px', objectFit: 'contain' }}
@@ -48,7 +85,7 @@ export default function ProductDetail() {
                     <p>{product.description}</p>
 
                     {/* Добавить в корзину */}
-                    <button className="btn btn-primary btn-lg mt-3">
+                    <button className="btn btn-primary btn-lg mt-3" onClick={handleAddToCart}>
                         Добавить в корзину
                     </button>
                 </div>

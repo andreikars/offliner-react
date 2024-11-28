@@ -20,7 +20,7 @@ const Login = () => {
         setError(''); // Очистить предыдущую ошибку
 
         try {
-            const response = await axios.post('https://nine-clubs-wonder.loca.lt/auth/login', credentials);
+            const response = await axios.post('http://localhost:8080/auth/login', credentials);
             const { role, username, userId } = response.data; // Предполагается, что в ответе есть роль и имя пользователя
 
             // Логируем полученные данные

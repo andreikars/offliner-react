@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';  // Подключение Bootstrap JS
 
 export default function Navbar() {
   const [role, setRole] = useState(localStorage.getItem('userRole')); // Для роли пользователя
@@ -34,8 +35,12 @@ export default function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
-            Offliner
+        <Link className="navbar-brand" to="/">
+            <img
+              src="/logo.png" // Путь к вашему логотипу
+              alt="Offliner Logo"
+              style={{ height: '40px', width: '130px' }}  // Настройте размер лого по желанию
+            />
           </Link>
           <button
             className="navbar-toggler"
@@ -55,12 +60,12 @@ export default function Navbar() {
               {role === 'ADMIN' && (
                 <>
                   <li className="nav-item">
-                    <Link className="nav-link active" aria-current="page" to="/manageusers">
+                    <Link className="btn btn-outline-light ms-2 mb-2 mb-lg-0" to="/manageusers">
                       Управление пользователями
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link active" aria-current="page" to="/manageproducts">
+                    <Link className="btn btn-outline-light ms-2 mb-2 mb-lg-0" to="/manageproducts">
                       Управление товарами
                     </Link>
                   </li>
@@ -69,13 +74,14 @@ export default function Navbar() {
             </ul>
 
             {/* Кнопки регистрации, входа и выхода справа */}
-            <div className="d-flex ms-auto">
+            <div className="d-flex flex-column flex-lg-row align-items-center ms-auto">
+              {/* Если нет авторизации */}
               {!role && (
                 <>
-                  <Link className="btn btn-outline-light ms-2" to="/register">
+                  <Link className="btn btn-outline-light ms-2 mb-2 mb-lg-0" to="/register">
                     Регистрация
                   </Link>
-                  <Link className="btn btn-outline-light ms-2" to="/login">
+                  <Link className="btn btn-light ms-2 mb-2 mb-lg-0" to="/login">
                     Вход
                   </Link>
                 </>
@@ -84,10 +90,10 @@ export default function Navbar() {
               {/* Личный кабинет и выход для авторизованных пользователей */}
               {username && (
                 <>
-                  <Link className="btn btn-outline-light ms-2" to="/profile">
-                    {username}
+                  <Link className="btn btn-outline-light ms-2 mb-2 mb-lg-0" to="/profile">
+                    Личный кабинет: {username}
                   </Link>
-                  <button className="btn btn-outline-light ms-2" onClick={handleLogout}>
+                  <button className="btn btn-light ms-2 mb-2 mb-lg-0" onClick={handleLogout}>
                     Выйти
                   </button>
                 </>

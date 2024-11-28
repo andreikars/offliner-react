@@ -12,13 +12,13 @@ export default function ManageUsers() {
 
     // Загрузка пользователей с сервера
     const loadUsers = async () => {
-        const result = await axios.get("https://nine-clubs-wonder.loca.lt/users");
+        const result = await axios.get("http://localhost:8080/users");
         setUsers(result.data);
     };
 
     // Удаление пользователя
     const deleteUser = async (id) => {
-        await axios.delete(`https://nine-clubs-wonder.loca.lt/user/${id}`);
+        await axios.delete(`http://localhost:8080/user/${id}`);
         loadUsers();
     };
 

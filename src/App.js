@@ -9,6 +9,8 @@ import ViewUser from './Users/ViewUser';
 import Register from './Users/Register';
 import Login from './Users/Login';
 import Cart from './pages/Cart';
+import EditProduct from './product/EditProduct';
+import Checkout from './pages/checkout';
 import ProductDetail from './product/ViewProduct';
 import UserProfile from './pages/UserProfile';
 import ProtectedRoute from './Other/ProtectedRoute'; // Импортируем компонент для защиты маршрутов
@@ -68,6 +70,16 @@ function App() {
             }
           />
 
+
+          <Route
+            path="/editproduct/:id"
+            element={
+              <ProtectedRoute roleRequired="ADMIN">
+                <EditProduct />
+              </ProtectedRoute>
+            }
+          />
+
           {/* Страница редактирования пользователя доступна только администратору */}
           <Route
             path="/edituser/:id"
@@ -84,6 +96,15 @@ function App() {
             element={
               <ProtectedRoute roleRequired="ADMIN">
                 <ViewUser />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/checkout"
+            element={
+              <ProtectedRoute roleRequired="USER">
+                <Checkout />
               </ProtectedRoute>
             }
           />

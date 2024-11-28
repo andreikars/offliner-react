@@ -24,7 +24,7 @@ export default function AddUser() {
       e.preventDefault();
     
       try {
-        const response = await axios.post("https://nine-clubs-wonder.loca.lt/user", user, {
+        const response = await axios.post("http://localhost:8080/user", user, {
           headers: {
             "Content-Type": "application/json",
           },
