@@ -18,7 +18,7 @@ const Checkout = () => {
     // Получаем товары в корзине текущего пользователя
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/cart?userId=${userId}`);
+        const response = await axios.get(`http://8.211.51.110:8080/api/cart?userId=${userId}`);
         setCartItems(response.data);
         calculateTotalPrice(response.data);
       } catch (error) {
@@ -42,7 +42,7 @@ const Checkout = () => {
   const handlePayment = () => {
     setTimeout(() => {
       // Очистить корзину
-      axios.delete(`http://localhost:8080/api/cart/clear?userId=${userId}`)
+      axios.delete(`http://8.211.51.110:8080/api/cart/clear?userId=${userId}`)
         .then(() => {
           localStorage.removeItem('cart'); // Удаляем корзину из localStorage
           setPaymentSuccess(true); // Устанавливаем состояние успешной оплаты

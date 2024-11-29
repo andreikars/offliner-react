@@ -21,10 +21,10 @@ export default function Home() {
   // Функция для загрузки товаров с сервера
   const loadProducts = async () => {
     try {
-      let url = 'http://localhost:8080/api/products/all';
+      let url = 'http://8.211.51.110:8080/api/products/all';
       if (selectedCategory) {
         console.log(`Fetching products with category ID: ${selectedCategory.id}`);
-        url = `http://localhost:8080/api/products?categoryId=${selectedCategory.id}`;
+        url = `http://8.211.51.110:8080/api/products?categoryId=${selectedCategory.id}`;
       }
       const result = await axios.get(url);
       setProducts(result.data);
@@ -37,7 +37,7 @@ export default function Home() {
   // Функция для загрузки категорий с сервера
   const loadCategories = async () => {
     try {
-      const result = await axios.get('http://localhost:8080/api/categories');
+      const result = await axios.get('http://8.211.51.110:8080/api/categories');
       setCategories(result.data); // Сохраняем данные категорий
     } catch (error) {
       console.error('Ошибка при загрузке категорий:', error);
@@ -87,7 +87,7 @@ export default function Home() {
       };
   
       // Отправка запроса на добавление товара в корзину
-      await axios.post('http://localhost:8080/api/cart', cartItem);
+      await axios.post('http://8.211.51.110:8080/api/cart', cartItem);
   
       alert('Товар добавлен в корзину!');
     } catch (error) {
@@ -145,7 +145,7 @@ export default function Home() {
               <div className="col-md-4 mb-4" key={product.id}>
                 <div className="card">
                   <img
-                    src={`http://localhost:8080${product.imageUrl}`} // Путь, начинающийся с /product/
+                    src={`http://8.211.51.110:8080${product.imageUrl}`} // Путь, начинающийся с /product/
                     className="card-img-top"
                     alt={product.name}
                   />
