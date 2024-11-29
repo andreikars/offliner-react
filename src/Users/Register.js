@@ -35,7 +35,7 @@ const Register = () => {
         }
     
         try {
-            await axios.post('https://yellow-knives-see.loca.lt/auth/register', formData);
+            await axios.post('http://8.211.51.110:8080/auth/register', formData);
             alert('Регистрация прошла успешно');
             navigate('/login');
         } catch (error) {
