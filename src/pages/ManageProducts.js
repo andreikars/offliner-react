@@ -22,14 +22,14 @@ export default function ManageProducts() {
 
     // Загрузка продуктов с сервера
     const loadProducts = async () => {
-        const result = await axios.get("http://8.211.51.110:8080/api/products");
+        const result = await axios.get("http://localhost:8080/api/products");
         setProducts(result.data);
     };
 
     // Загрузка категорий с сервера
     const loadCategories = async () => {
         try {
-            const result = await axios.get("http://8.211.51.110:8080/api/categories");
+            const result = await axios.get("http://localhost:8080/api/categories");
             // Логируем для отладки
             console.log(result.data); 
             setCategories(Array.isArray(result.data) ? result.data : []); // Обеспечиваем, что это массив
@@ -41,7 +41,7 @@ export default function ManageProducts() {
 
     // Удаление продукта
     const deleteProduct = async (id) => {
-        await axios.delete(`http://8.211.51.110:8080/api/products/${id}`);
+        await axios.delete(`http://localhost:8080/api/products/${id}`);
         loadProducts();
     };
 
@@ -72,7 +72,7 @@ export default function ManageProducts() {
         }
     
         try {
-            await axios.post("http://8.211.51.110:8080/api/products", formData, {
+            await axios.post("http://localhost:8080/api/products", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
