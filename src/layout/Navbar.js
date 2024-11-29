@@ -39,7 +39,7 @@ export default function Navbar() {
             <img
               src="/logo.png" // Путь к вашему логотипу
               alt="Offliner Logo"
-              style={{ height: '40px', width: '130px' }}  // Настройте размер лого по желанию
+              style={{ height: '40px', width: '120px' }}  // Настройте размер лого по желанию
             />
           </Link>
           <button

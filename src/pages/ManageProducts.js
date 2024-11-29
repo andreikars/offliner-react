@@ -22,14 +22,14 @@ export default function ManageProducts() {
 
     // Загрузка продуктов с сервера
     const loadProducts = async () => {
-        const result = await axios.get("https://lazy-experts-look.loca.lt/api/products");
+        const result = await axios.get("https://yellow-knives-see.loca.lt/api/products");
         setProducts(result.data);
     };
 
     // Загрузка категорий с сервера
     const loadCategories = async () => {
         try {
-            const result = await axios.get("https://lazy-experts-look.loca.lt/api/categories");
+            const result = await axios.get("https://yellow-knives-see.loca.lt/api/categories");
             // Логируем для отладки
             console.log(result.data); 
             setCategories(Array.isArray(result.data) ? result.data : []); // Обеспечиваем, что это массив
@@ -41,7 +41,7 @@ export default function ManageProducts() {
 
     // Удаление продукта
     const deleteProduct = async (id) => {
-        await axios.delete(`https://lazy-experts-look.loca.lt/api/products/${id}`);
+        await axios.delete(`https://yellow-knives-see.loca.lt/api/products/${id}`);
         loadProducts();
     };
 
@@ -72,7 +72,7 @@ export default function ManageProducts() {
         }
     
         try {
-            await axios.post("https://lazy-experts-look.loca.lt/api/products", formData, {
+            await axios.post("https://yellow-knives-see.loca.lt/api/products", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

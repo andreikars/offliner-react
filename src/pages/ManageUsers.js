@@ -12,13 +12,13 @@ export default function ManageUsers() {
 
     // Загрузка пользователей с сервера
     const loadUsers = async () => {
-        const result = await axios.get("https://lazy-experts-look.loca.lt/users");
+        const result = await axios.get("https://yellow-knives-see.loca.lt/users");
         setUsers(result.data);
     };
 
     // Удаление пользователя
     const deleteUser = async (id) => {
-        await axios.delete(`https://lazy-experts-look.loca.lt/user/${id}`);
+        await axios.delete(`https://yellow-knives-see.loca.lt/user/${id}`);
         loadUsers();
     };
 

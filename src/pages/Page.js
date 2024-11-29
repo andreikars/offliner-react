@@ -21,10 +21,10 @@ export default function Home() {
   // Функция для загрузки товаров с сервера
   const loadProducts = async () => {
     try {
-      let url = 'https://lazy-experts-look.loca.lt/api/products/all';
+      let url = 'https://yellow-knives-see.loca.lt/api/products/all';
       if (selectedCategory) {
         console.log(`Fetching products with category ID: ${selectedCategory.id}`);
-        url = `https://lazy-experts-look.loca.lt/api/products?categoryId=${selectedCategory.id}`;
+        url = `https://yellow-knives-see.loca.lt/api/products?categoryId=${selectedCategory.id}`;
       }
       const result = await axios.get(url);
       setProducts(result.data);
@@ -37,7 +37,7 @@ export default function Home() {
   // Функция для загрузки категорий с сервера
   const loadCategories = async () => {
     try {
-      const result = await axios.get('https://lazy-experts-look.loca.lt/api/categories');
+      const result = await axios.get('https://yellow-knives-see.loca.lt/api/categories');
       setCategories(result.data); // Сохраняем данные категорий
     } catch (error) {
       console.error('Ошибка при загрузке категорий:', error);
@@ -87,7 +87,7 @@ export default function Home() {
       };
   
       // Отправка запроса на добавление товара в корзину
-      await axios.post('https://lazy-experts-look.loca.lt/api/cart', cartItem);
+      await axios.post('https://yellow-knives-see.loca.lt/api/cart', cartItem);
   
       alert('Товар добавлен в корзину!');
     } catch (error) {
@@ -145,7 +145,7 @@ export default function Home() {
               <div className="col-md-4 mb-4" key={product.id}>
                 <div className="card">
                   <img
-                    src={`https://lazy-experts-look.loca.lt${product.imageUrl}`} // Путь, начинающийся с /product/
+                    src={`https://yellow-knives-see.loca.lt${product.imageUrl}`} // Путь, начинающийся с /product/
                     className="card-img-top"
                     alt={product.name}
                   />

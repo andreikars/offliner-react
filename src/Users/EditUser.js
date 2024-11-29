@@ -30,7 +30,7 @@ export default function EditUser() {
         e.preventDefault();
 
         try {
-            const response = await axios.put(`https://lazy-experts-look.loca.lt/user/${id}`, user, {
+            const response = await axios.put(`https://yellow-knives-see.loca.lt/user/${id}`, user, {
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -43,7 +43,7 @@ export default function EditUser() {
     };
 
     const loadUser = async () => {
-        const result = await axios.get(`https://lazy-experts-look.loca.lt/user/${id}`);
+        const result = await axios.get(`https://yellow-knives-see.loca.lt/user/${id}`);
         setUser(result.data);
     };
 

@@ -24,7 +24,7 @@ export default function AddUser() {
       e.preventDefault();
     
       try {
-        const response = await axios.post("https://lazy-experts-look.loca.lt/user", user, {
+        const response = await axios.post("https://yellow-knives-see.loca.lt/user", user, {
           headers: {
             "Content-Type": "application/json",
           },

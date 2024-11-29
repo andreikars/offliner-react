@@ -18,7 +18,7 @@ const Checkout = () => {
     // Получаем товары в корзине текущего пользователя
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get(`https://lazy-experts-look.loca.lt/api/cart?userId=${userId}`);
+        const response = await axios.get(`https://yellow-knives-see.loca.lt/api/cart?userId=${userId}`);
         setCartItems(response.data);
         calculateTotalPrice(response.data);
       } catch (error) {
@@ -42,7 +42,7 @@ const Checkout = () => {
   const handlePayment = () => {
     setTimeout(() => {
       // Очистить корзину
-      axios.delete(`https://lazy-experts-look.loca.lt/api/cart/clear?userId=${userId}`)
+      axios.delete(`https://yellow-knives-see.loca.lt/api/cart/clear?userId=${userId}`)
         .then(() => {
           localStorage.removeItem('cart'); // Удаляем корзину из localStorage
           setPaymentSuccess(true); // Устанавливаем состояние успешной оплаты

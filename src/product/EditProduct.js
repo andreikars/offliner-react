@@ -37,13 +37,13 @@ export default function EditProduct() {
     }, []);
 
     const loadProduct = async () => {
-        const result = await axios.get(`https://lazy-experts-look.loca.lt/api/products/${id}`);
+        const result = await axios.get(`https://yellow-knives-see.loca.lt/api/products/${id}`);
         setProduct(result.data);
     };
 
     const loadCategories = async () => {
         try {
-            const result = await axios.get("https://lazy-experts-look.loca.lt/api/categories");
+            const result = await axios.get("https://yellow-knives-see.loca.lt/api/categories");
             console.log(result.data); // Для отладки
             setCategories(Array.isArray(result.data) ? result.data : []);
         } catch (error) {
@@ -70,7 +70,7 @@ export default function EditProduct() {
         }
 
         try {
-            const response = await axios.put(`https://lazy-experts-look.loca.lt/api/products/${id}`, formData, {
+            const response = await axios.put(`https://yellow-knives-see.loca.lt/api/products/${id}`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
@@ -179,7 +179,7 @@ export default function EditProduct() {
                             {imageUrl && (
                                 <div className="mb-3">
                                     <img
-                                        src={product.imageUrl ? `https://lazy-experts-look.loca.lt/product/${product.imageUrl}` : 'https://via.placeholder.com/500x500'}
+                                        src={product.imageUrl ? `https://yellow-knives-see.loca.lt/product/${product.imageUrl}` : 'https://via.placeholder.com/500x500'}
                                         alt="Product"
                                         style={{ maxWidth: "200px", maxHeight: "200px" }}
                                     />
