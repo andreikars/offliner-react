@@ -19,7 +19,7 @@ export default function ViewUser() {
     }, []);
 
     const loadUser = async () => {
-        const result = await axios.get(`http://8.211.51.110:8080/user/${id}`);
+        const result = await axios.get(`https://lazy-experts-look.loca.lt/user/${id}`);
         setUser(result.data);
     };
 

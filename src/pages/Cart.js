@@ -17,7 +17,7 @@ const Cart = () => {
     // Получаем товары в корзине текущего пользователя
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get(`http://8.211.51.110:8080/api/cart?userId=${userId}`);
+        const response = await axios.get(`https://lazy-experts-look.loca.lt/api/cart?userId=${userId}`);
         setCartItems(response.data);
         calculateTotalPrice(response.data);
       } catch (error) {
@@ -46,7 +46,7 @@ const Cart = () => {
 
     try {
       // Отправляем обновление на сервер
-      await axios.put(`http://8.211.51.110:8080/api/cart/${cartItemId}`, { quantity });
+      await axios.put(`https://lazy-experts-look.loca.lt/api/cart/${cartItemId}`, { quantity });
 
       // Обновляем локальное состояние корзины
       const updatedCart = cartItems.map(item =>
@@ -62,7 +62,7 @@ const Cart = () => {
   // Обработчик для удаления товара из корзины
   const handleRemoveItem = async (cartItemId) => {
     try {
-      await axios.delete(`http://8.211.51.110:8080/api/cart/${cartItemId}`);
+      await axios.delete(`https://lazy-experts-look.loca.lt/api/cart/${cartItemId}`);
       const updatedCart = cartItems.filter(item => item.id !== cartItemId);
       setCartItems(updatedCart);
       calculateTotalPrice(updatedCart);

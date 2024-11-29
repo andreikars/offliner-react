@@ -28,7 +28,7 @@ const UserProfile = () => {
     // Функция для загрузки данных о пользователе
     const fetchUserProfile = async (username) => {
         try {
-            const response = await axios.get(`http://8.211.51.110:8080/users/${username}`);
+            const response = await axios.get(`https://lazy-experts-look.loca.lt/users/${username}`);
             setUserData(response.data); // Сохраняем данные о пользователе
             setNewUserData(response.data); // Сохраняем данные для редактирования
         } catch (error) {
@@ -46,7 +46,7 @@ const UserProfile = () => {
     const handleSave = async () => {
         try {
             const response = await axios.put(
-                `http://8.211.51.110:8080/user/profile?username=${username}`,  // передаем username как параметр
+                `https://lazy-experts-look.loca.lt/user/profile?username=${username}`,  // передаем username как параметр
                 newUserData
             );
             setUserData(response.data); // Обновляем локальные данные после успешного сохранения
