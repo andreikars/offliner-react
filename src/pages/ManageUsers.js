@@ -12,13 +12,13 @@ export default function ManageUsers() {
 
     // Загрузка пользователей с сервера
     const loadUsers = async () => {
-        const result = await axios.get("http://localhost:8080/users");
+        const result = await axios.get("http://8.211.51.110:8080/users");
         setUsers(result.data);
     };
 
     // Удаление пользователя
     const deleteUser = async (id) => {
-        await axios.delete(`http://localhost:8080/user/${id}`);
+        await axios.delete(`http://8.211.51.110:8080/user/${id}`);
         loadUsers();
     };
 

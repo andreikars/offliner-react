@@ -24,7 +24,7 @@ export default function AddUser() {
       e.preventDefault();
     
       try {
-        const response = await axios.post("http://localhost:8080/user", user, {
+        const response = await axios.post("http://8.211.51.110:8080/user", user, {
           headers: {
             "Content-Type": "application/json",
           },
