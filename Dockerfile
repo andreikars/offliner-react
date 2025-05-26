@@ -1,29 +1,23 @@
-# Используем официальный образ Node.js как базовый
-FROM node:16 AS build
+# Use an official Node runtime as a parent image
+FROM node:16
 
-# Устанавливаем рабочую директорию в контейнере
+# Set the working directory to /app
 WORKDIR /app
 
-# Копируем package.json и package-lock.json (или yarn.lock)
-COPY package.json package-lock.json ./
+# Copy the package.json and package-lock.json to the working directory
+COPY ./package*.json ./
 
-# Устанавливаем зависимости
+# Install the dependencies
 RUN npm install
 
-# Копируем весь исходный код
+# Copy the remaining application files to the working directory
 COPY . .
 
-# Собираем приложение
+# Build the application
 RUN npm run build
 
-# Используем Nginx для обслуживания собранного приложения
-FROM nginx:alpine
+# Expose port 3000 for the application
+EXPOSE 3000
 
-# Копируем собранные файлы в папку, обслуживаемую Nginx
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Открываем 80-й порт
-EXPOSE 80
-
-# Запускаем Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Start the application
+CMD [ "npm", "run", "start" ]
