@@ -18,26 +18,28 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(''); // Очистить предыдущую ошибку
-
+    
         try {
-            const response = await axios.post('http://localhost:8080/auth/login', credentials);
+            const response = await axios.post('http://8.211.51.110:8080/auth/login', credentials, {
+                withCredentials: true // Указываем параметр с куками
+            });
             const { role, username, userId } = response.data; // Предполагается, что в ответе есть роль и имя пользователя
-
+    
             // Логируем полученные данные
             console.log('Role:', role);
             console.log('Username:', username);
             console.log('UserId:', userId);
-
+    
             // Сохраняем роль, имя пользователя и userId в localStorage
             localStorage.setItem('userRole', role);
             localStorage.setItem('username', username);
             localStorage.setItem('userId', userId); // Сохраняем userId в localStorage
-
+    
             // Логирование данных
             console.log(response.data); // Логирование ответа от сервера
             console.log(username); // Логирование имени пользователя
             console.log(userId); // Логирование имени пользователя
-
+    
             // Перенаправляем пользователя в зависимости от его роли
             if (role === 'ADMIN') {
                 navigate('/manageusers'); // Перенаправляем администратора на страницу управления пользователями
